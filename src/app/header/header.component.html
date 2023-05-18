@@ -1,0 +1,7 @@
+<div class="header">
+  <h3>Актуальний курс валют станом на {{ todayDate | date : "dd.MM.yyyy" }}</h3>
+  <div class="header-currencies">
+    <span class="currency-label">USD / UAH {{ USDrate | number : "1.1-2" }} </span>
+    <span class="currency-label">EUR / UAH {{ EURrate | number : "1.2-2" }} </span>
+  </div>
+</div>

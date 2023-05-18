@@ -1,0 +1,51 @@
+<div class="convert-currency">
+  <div class="exchange-block">
+    <label class="exchange-label" for="value1">Я продаю</label>
+    <div class="exchange-block__inputs">
+      <input
+        class="input-currency input"
+        id="value1"
+        [(ngModel)]="exchangeValue1"
+        (input)="getExchangeRate1(selectedCurrency1, selectedCurrency2)"
+      />
+      <select
+        class="select-currency input"
+        [(ngModel)]="selectedCurrency1"
+        (change)="
+          updateCurrencyOptions();
+          getExchangeRate1(selectedCurrency1, selectedCurrency2)
+        "
+      >
+        <option
+          *ngFor="let currency of currenciesForOptions"
+          [value]="currency.cc"
+        >
+          {{ currency.cc }}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="exchange-block">
+    <label class="exchange-label" for="value2">Я купую</label>
+    <div class="exchange-block__inputs">
+      <input
+        class="input-currency"
+        id="value2"
+        [(ngModel)]="exchangeValue2"
+        (input)="getExchangeRate2(selectedCurrency1, selectedCurrency2)"
+      />
+      <select
+        class="select-currency"
+        [(ngModel)]="selectedCurrency2"
+        (change)="getExchangeRate1(selectedCurrency1, selectedCurrency2)"
+      >
+        <option
+          *ngFor="let currency of availableCurrencyOptions"
+          [value]="currency.cc"
+        >
+          {{ currency.cc }}
+        </option>
+      </select>
+    </div>
+  </div>
+</div>
